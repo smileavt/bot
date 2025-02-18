@@ -2,6 +2,7 @@ import requests
 import time
 import socket
 import telebot
+import os
 
 # Telegram Bot Token (from BotFather)
 BOT_TOKEN=os.getenv("BOT_TOKEN")
