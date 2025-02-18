@@ -22,6 +22,9 @@ def is_online(ip):
     except OSError:
         return False
 
+# Send startup message
+bot.send_message(CHAT_ID, "🚀 Bot is up and running!")
+
 # Track last known status
 last_status = None  
 
