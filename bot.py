@@ -32,8 +32,6 @@ last_status = None
 while True:
     current_status = is_online(TARGET_IP)
 
-    if last_status is None:  # First check
-        last_status = current_status
 
     elif last_status != current_status:
         status_msg = "ONLINE ✅" if current_status else "OFFLINE ❌"
