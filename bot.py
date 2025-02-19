@@ -2,13 +2,12 @@ import requests
 import time
 import socket
 import telebot
+import os
 
 # Telegram Bot Token (from BotFather)
-BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
-CHAT_ID = "YOUR_CHAT_ID"
-
-# IP or hostname to monitor
-TARGET_IP = "YOUR_TARGET_IP_OR_HOSTNAME"
+BOT_TOKEN=os.getenv("BOT_TOKEN")
+CHAT_ID=os.getenv("CHAT_ID")
+TARGET_IP=os.getenv("TARGET_IP")
 
 # Initialize bot
 bot = telebot.TeleBot(BOT_TOKEN)
