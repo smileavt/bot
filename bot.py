@@ -22,7 +22,7 @@ def is_online(ip):
     return response is not None
 
 # Track last known status
-last_status = is_online(TARGET_IP)  # Initialize with the current status
+last_status = None  # Initialize with the current status
 
 while True:
     current_status = is_online(TARGET_IP)
