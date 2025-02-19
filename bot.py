@@ -3,27 +3,26 @@ import time
 import socket
 import telebot
 import os
+from ping3 import ping
 
 # Telegram Bot Token (from BotFather)
 BOT_TOKEN=os.getenv("BOT_TOKEN")
 CHAT_ID=os.getenv("CHAT_ID")
 TARGET_IP=os.getenv("TARGET_IP")
 
+# IP or hostname to monitor
+
+
+# Initialize bot
 bot = telebot.TeleBot(BOT_TOKEN)
 
 def is_online(ip):
-    """Check if the IP is online by trying to connect to it."""
-    try:
-        socket.create_connection((ip, 80), timeout=3)
-        return True
-    except OSError:
-        return False
-
-# Send startup message
-bot.send_message(CHAT_ID, "🚀 Bot is up and running!")
+    """Check if the IP is online by pinging it."""
+    response = ping(ip, timeout=3)
+    return response is not None
 
 # Track last known status
-last_status = is_online(TARGET_IP)
+last_status = is_online(TARGET_IP)  # Initialize with the current status
 
 while True:
     current_status = is_online(TARGET_IP)
