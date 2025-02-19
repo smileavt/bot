@@ -21,7 +21,7 @@ def is_online(ip):
 bot.send_message(CHAT_ID, "🚀 Bot is up and running!")
 
 # Track last known status
-last_status = is_online(TARGET_IP)
+last_status = None
 
 while True:
     current_status = is_online(TARGET_IP)
