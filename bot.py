@@ -28,8 +28,11 @@ while True:
     current_status = is_online(TARGET_IP)
 
     if last_status != current_status:
-        status_msg = "ONLINE ✅" if current_status else "OFFLINE ❌"
-        bot.send_message(CHAT_ID, f"🔔 IP {TARGET_IP} is now {status_msg}")
-        last_status = current_status
+        time.sleep(30)  # Wait for 30 seconds
+        confirmed_status = is_online(TARGET_IP)
+        if confirmed_status == current_status:
+            status_msg = "ONLINE ✅" if current_status else "OFFLINE ❌"
+            bot.send_message(CHAT_ID, f"🔔 IP {TARGET_IP} is now {status_msg}")
+            last_status = current_status
 
     time.sleep(30)  # Check every 30 seconds
